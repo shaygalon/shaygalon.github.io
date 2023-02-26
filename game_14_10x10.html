@@ -138,6 +138,7 @@ var game_timer=null;
 regenerateButton.addEventListener("click", function () {
 	if (has_timer) {
 	clearInterval(game_timer );
+	timerBlock.textContent = "";
 	}
   // Remove the existing grid items
   const gridContainer = document.getElementById("grid-container");

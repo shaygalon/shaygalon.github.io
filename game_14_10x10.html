@@ -133,8 +133,8 @@ let game_timer=null;
 
 // Add an event listener to the button to regenerate the grid
 regenerateButton.addEventListener("click", function () {
-	if (game_timer !=null) {
-	clearInterval(timer);
+	if (game_timer != null) {
+	clearInterval(game_timer);
 	}
   // Remove the existing grid items
   const gridContainer = document.getElementById("grid-container");

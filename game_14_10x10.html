@@ -42,6 +42,15 @@
   border-radius: 5px;
   cursor: pointer;
 }
+
+      /* Style for the timer */
+      #timer-block {
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+        margin-top: 20px;
+      }
+	    
     </style>
   </head>
   <body>
@@ -52,7 +61,8 @@
     <div id="grid-container">
       <!-- Generate grid items with JavaScript -->
     </div>
-    <button id="regenerate-button">Regenerate</button>
+    <button id="regenerate-button">New Game</button>
+    <div id="timer-block"></div>	  
 
     <script>
       // Get the grid container element
@@ -114,8 +124,8 @@ function gen_grid() {
       }
     }
 }
-gen_grid();
 const regenerateButton = document.getElementById("regenerate-button");
+const timerBlock = document.querySelector("#timer-block");
 
 // Add an event listener to the button to regenerate the grid
 regenerateButton.addEventListener("click", function () {
@@ -125,7 +135,30 @@ regenerateButton.addEventListener("click", function () {
 
   // Regenerate the grid
   gen_grid();
+	
+  // Reset the timer
+  let startTime = new Date().getTime();
+
+  // Start the timer
+  let timer = setInterval(() => {
+    // Calculate the elapsed time
+    let elapsedTime = new Date().getTime() - startTime;
+
+    // Convert the elapsed time to seconds
+    let seconds = Math.floor(elapsedTime / 1000);
+
+    // Update the timer block with the elapsed time
+    timerBlock.textContent = `Elapsed Time: ${seconds} seconds`;
+
+    // Stop the timer after 1 hour
+    if (seconds >= 3600) {
+      clearInterval(timer);
+      timerBlock.textContent = "Timer Stopped";
+    }
+  }, 1000);	
 });
+	    
+	    
 	    
     </script>
   </body>

@@ -1,8 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>10x10 Grid</title>
+    <title>Tetrisco</title>
     <style>
+      header {
+        background-color: lightblue;
+        padding: 20px;
+        text-align: center;
+        font-size: 40px;
+        font-weight: bold;
+      }
       /* Style the grid container */
       #grid-container {
         display: grid;
@@ -25,15 +32,21 @@
     </style>
   </head>
   <body>
+    <header>
+      tetrisco
+    </header>
+	  
     <div id="grid-container">
       <!-- Generate grid items with JavaScript -->
     </div>
+    <button id="regenerate-button">Regenerate</button>
 
     <script>
       // Get the grid container element
+function gen_grid() {
     use_random = false;
+    const gridContainer = document.getElementById("grid-container");
     if (use_random) {
-      const gridContainer = document.getElementById("grid-container");
 	  const usedValues = new Set();
 
       // Loop through each row and column to generate the grid items
@@ -61,11 +74,7 @@
         }
       }
     }
-    </script>
-    <script>
-      // Get the grid container element
-    if (!use_random) {
-      const gridContainer = document.getElementById("grid-container");
+    else {
       const num_options=4;
       const options = [
 	["J9","E2","J6","J5","F10","B7","I5","D3","J5","I8","H6","H8","D3","G2"],
@@ -91,6 +100,20 @@
         }
       }
     }
+}
+gen_grid();
+const regenerateButton = document.getElementById("regenerate-button");
+
+// Add an event listener to the button to regenerate the grid
+regenerateButton.addEventListener("click", function () {
+  // Remove the existing grid items
+  const gridContainer = document.getElementById("grid-container");
+  gridContainer.innerHTML = "";
+
+  // Regenerate the grid
+  gen_grid();
+});
+	    
     </script>
   </body>
 </html>

@@ -66,6 +66,7 @@
       // Get the grid container element
     if (!use_random) {
       const gridContainer = document.getElementById("grid-container");
+      const num_options=4;
       const options = [
 	["J9","E2","J6","J5","F10","B7","I5","D3","J5","I8","H6","H8","D3","G2"],
 	["F7","E8","A5","I9","H2","C1","J2","E10","A7","J10","B7","G8","B6","F8"],
@@ -74,7 +75,7 @@
       ];
 
       // pick sample
-      idx = Math.floor(Math.random() * 2);
+      idx = Math.floor(Math.random() * num_options);
       // Loop through each row and column to generate the grid items
       for (let row = 0; row <= 1; row++) {
         for (let col = 0; col < 7; col++) {

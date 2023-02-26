@@ -129,6 +129,7 @@ const timerBlock = document.querySelector("#timer-block");
 
 // Add an event listener to the button to regenerate the grid
 regenerateButton.addEventListener("click", function () {
+	clearInterval(timer);
   // Remove the existing grid items
   const gridContainer = document.getElementById("grid-container");
   gridContainer.innerHTML = "";

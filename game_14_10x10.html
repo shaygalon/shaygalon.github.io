@@ -65,6 +65,10 @@
     <div id="timer-block"></div>	  
 
     <script>
+var has_timer=false;
+</script>
+
+    <script>
 let my_version=3;
       // Get the grid container element
 function gen_grid() {
@@ -127,14 +131,13 @@ function gen_grid() {
 }
 const regenerateButton = document.getElementById("regenerate-button");
 const timerBlock = document.querySelector("#timer-block");
-function startTimer() {
 	    
-let game_timer=null;
+var game_timer=null;
 
 // Add an event listener to the button to regenerate the grid
 regenerateButton.addEventListener("click", function () {
-	if (game_timer != null) {
-	clearInterval(game_timer);
+	if (has_timer) {
+	clearInterval(game_timer );
 	}
   // Remove the existing grid items
   const gridContainer = document.getElementById("grid-container");
@@ -147,7 +150,7 @@ regenerateButton.addEventListener("click", function () {
   let startTime = new Date().getTime();
 
   // Start the timer
-  let game_timer = setInterval(() => {
+  game_timer = setInterval(() => {
     // Calculate the elapsed time
     let elapsedTime = new Date().getTime() - startTime;
 
@@ -163,12 +166,9 @@ regenerateButton.addEventListener("click", function () {
       timerBlock.textContent = "Timer Stopped";
     }
   }, 1000);	
+  has_timer = true;
 });
-}
-	    
-startTimer();
-	    
-	    
+
 	    
     </script>
   </body>

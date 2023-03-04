@@ -72,35 +72,35 @@ var has_timer=false;
 let my_version=3;
       // Get the grid container element
 function gen_grid() {
-    use_random = false;
+    use_random = true;
     const gridContainer = document.getElementById("grid-container");
     if (use_random) {
 	  const usedValues = new Set();
+	  const options = [
+		["a6","a6","a6","f1","f1","f1"],
+		["e6","f4","e5","e6","d5","e4"],
+		["a1","c1","d2","f3","e2","d1"],
+		["f2","a5","e1","f2","a5","b6"],
+		["b4","c4","d4","c3","d3","e3"],
+		["c6","a4","c6","f6","b5","d6"],
+		["b2","c2","a3","a2","b1","b3"]
+	  ];
+	  const num_options=6;
 
       // Loop through each row and column to generate the grid items
-      for (let row = 1; row <= 2; row++) {
-        for (let col = 1; col <= 7; col++) {
+        for (let die = 0; die < 7; die++) {
           // Create a new grid item element
           const gridItem = document.createElement("div");
           gridItem.classList.add("grid-item");
 
-		  let letter, number;
-		  do {
-		    letter = String.fromCharCode(65 + Math.floor(Math.random() * 10));
-		    number = Math.floor(Math.random() * 10) + 1;
-		    var value = letter + number;
-		  } while (usedValues.has(value));
-
-		  // Add the value to the set of used values
-		  usedValues.add(value);
-
-          // Set the content 
-          gridItem.textContent = letter + number;
+		  // pick sample
+		  idx = Math.floor(Math.random() * num_options);
+		  if (idx>5) {idx=5;} // cover coorner case
+		  gridItem.textContent = options[die][idx];
 
           // Add the grid item to the container
           gridContainer.appendChild(gridItem);
         }
-      }
     }
     else {
       const num_options=4;

@@ -31,25 +31,32 @@
 		border: 2px solid black;
 		border-radius: 10px;
 		width: 80%;
+		box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 	}
 	.grid-item:after {
 		content: "";
 		display: block;
 		padding-bottom: 100%;
 	}
+	#grid-container .grid-item:nth-child(even) {
+		background-color: #f0f0fff0;
+	}
+	#grid-container .grid-item:nth-child(odd) {
+		background-color: #f0fff0f0;
+	}
 	    
-#regenerate-button {
-  display: block;
-  margin: auto;
-  padding: 10px 20px;
-  font-size: 32px;
-  font-weight: bold;
-  width: 300px;
-  background-color: lightblue;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
+	#regenerate-button {
+	  display: block;
+	  margin: auto;
+	  padding: 10px 20px;
+	  font-size: 32px;
+	  font-weight: bold;
+	  width: 300px;
+	  background-color: lightblue;
+	  border: none;
+	  border-radius: 5px;
+	  cursor: pointer;
+	}
 
       /* Style for the timer */
       #timer-block {

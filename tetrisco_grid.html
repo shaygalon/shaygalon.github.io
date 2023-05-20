@@ -371,7 +371,7 @@ function gen_grid() {
             selected[get_row(chosen)][get_col(chosen)] = chosen;
 		}
         for (let row = 0; row <= 7; row++) {
-            for (let col = 0; col < 7; col++) {
+            for (let col = 0; col <= 7; col++) {
                 // Create a new grid item element
                 const gridItem = document.createElement("div");
                 gridItem.classList.add("grid-item");

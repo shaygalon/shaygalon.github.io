@@ -354,11 +354,11 @@ function beep() {
 }
 // Add an event listener to the button to regenerate the grid
 regenerateButton.addEventListener("click", function () {
-	has_timer = false;
 	if (has_timer) {
-	clearInterval(game_timer );
-	timerBlock.textContent = "";
+		clearInterval(game_timer);
 	}
+	has_timer = false;
+	timerBlock.textContent = "";
 	timerButton.textContent = "Start Timer";
   // Remove the existing grid items
   const gridContainer = document.getElementById("grid-container");

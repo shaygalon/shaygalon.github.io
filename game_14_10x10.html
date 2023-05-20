@@ -73,6 +73,76 @@
 	#grid-container .grid-item:nth-child(10) {
 		background-color: LightGreen;
 	}
+.new-game {
+  font-size: 64px;
+  font-weight: bold;
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  font-family: cursive;
+  color: black;
+  background: gold;
+  background-color: gold;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.new-game:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-new-game 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowing-new-game {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.new-game:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: gold;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
 	    
 #regenerate-button {
   display: block;
@@ -80,6 +150,7 @@
   padding: 10px 20px;
   font-size: 64px;
   font-weight: bold;
+  font-family: cursive;
   width: 350px;
   background-color: gold;
   border: none;
@@ -94,6 +165,7 @@
   padding: 10px 20px;
   font-size: 64px;
   font-weight: bold;
+  font-family: cursive;
   width: 300px;
   background-color: lightblue;
   border: none;
@@ -129,7 +201,7 @@
 	<div class="grid-item" ></div>
 	<div class="grid-item" ></div>
     </div>
-    <button id="regenerate-button">New Game</button>
+    <button id="regenerate-button" class="new-game" role="button">New Game</button>
 	<HR>
     <button id="timer-button">Start Timer</button>
     <div id="timer-block"></div>	  

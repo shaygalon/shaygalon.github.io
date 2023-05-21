@@ -486,6 +486,11 @@ regenerateButton.addEventListener("click", function () {
 	
 });
 
+function zeroPad(nr,base){
+  var  len = (String(base).length - String(nr).length)+1;
+  return len > 0? new Array(len).join('0')+nr : nr;
+}
+
 timerButton.addEventListener("click", function () {
 	if (has_timer) {
 		clearInterval(game_timer );
@@ -506,16 +511,21 @@ timerButton.addEventListener("click", function () {
 
     // Convert the elapsed time to seconds
     let seconds = Math.floor(elapsedTime / 1000);
+    let minutes = Math.floor(seconds / 60);
+    let leftover = seconds - minutes*60;
 	let remaining = max_time-seconds;
 
     // Update the timer block with the elapsed time
-    timerBlock.textContent = `Elapsed Time: ${seconds} seconds`;
+    // timerBlock.textContent = `Elapsed Time: ${seconds} seconds`;
+	min = zeroPad(minutes,10);
+	sec = zeroPad(leftover,10);
+    timerBlock.textContent = `${min}:${sec}`;
 
     // Stop the timer after 1 hour
     if (seconds >= max_time) {
       	clearInterval(game_timer);
-	timerButton.textContent = "Game Over";
-	bell.start();
+	    timerButton.textContent = "Game Over";
+	    bell.start();
     }
     if (seconds == max_time-beep_count_max) {
 	  beep();

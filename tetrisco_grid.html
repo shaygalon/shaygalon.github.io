@@ -379,9 +379,13 @@ function gen_grid() {
                 const gridItem = document.createElement("div");
                 gridItem.classList.add("grid-item");
 
-                // Set the content 
-                gridItem.textContent = selected[row][col];
-
+                // Set the content (Letter/Number)
+                //gridItem.textContent = selected[row][col];
+                // Set the content (Number)
+				if (selected[row][col] != "" ) {
+					position = row*8 + col + 1;
+					gridItem.textContent = String(position);
+				}
                 // Add the grid item to the container
                 gridContainer.appendChild(gridItem);
             }

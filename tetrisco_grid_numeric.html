@@ -380,7 +380,12 @@ function gen_grid() {
                 gridItem.classList.add("grid-item");
 
                 // Set the content (Letter/Number)
-                gridItem.textContent = selected[row][col];
+                //gridItem.textContent = selected[row][col];
+                // Set the content (Number)
+				if (selected[row][col] != "" ) {
+					position = row*8 + col + 1;
+					gridItem.textContent = String(position);
+				}
                 // Add the grid item to the container
                 gridContainer.appendChild(gridItem);
             }

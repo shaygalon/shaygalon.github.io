@@ -478,7 +478,6 @@ function beep() {
 regenerateButton.addEventListener("click", function () {
 	if (has_timer) {
 		clearInterval(game_timer);
-		clap.start();
 	}
 	has_timer = false;
 	timerBlock.textContent = "";
@@ -501,6 +500,7 @@ timerButton.addEventListener("click", function () {
 	if (has_timer) {
 		clearInterval(game_timer );
 		timerButton.textContent = "Game Over";
+		clap.start();
 		return;
 	} else {
 		timerButton.textContent = "Stop Timer";
